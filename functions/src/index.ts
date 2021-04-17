@@ -12,7 +12,9 @@ import { Telegraf } from "telegraf"
 const bot = new Telegraf(functions.config().telegram.token)
 
 bot.start(ctx => {
-  ctx.reply("Hola")
+  functions.logger.info(ctx)
+  functions.logger.info(`El bot fue iniciado por `)
+  ctx.reply("Hola, mi nombre es ScoreBot!\nPara ver la lista de comandos escribí /help")
 })
 
 bot.launch()
